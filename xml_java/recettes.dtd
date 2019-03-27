@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT recettes (recette+, ingredient+, auteur+,categorie+,categorie+,souscategorie+)>
+<!--Element recette-->
+<!ELEMENT recette (resume, photo,ref_sous_categorie*, ingredients, descriptionpreparation, refingd*)>
+<!ELEMENT resume (#PCDATA| p)*>
+<!ELEMENT photo (#PCDATA)>
+<!ELEMENT ingredients (#PCDATA | p | br)*>
+<!ELEMENT descriptionpreparation (#PCDATA | p)*>
+<!ATTLIST recette
+	id ID #REQUIRED
+	titre CDATA #IMPLIED
+	datepub CDATA #IMPLIED
+	difficulte CDATA #IMPLIED
+	nbpersonnes CDATA #IMPLIED
+	tempspreparation CDATA #IMPLIED
+	tempscuisson CDATA #IMPLIED
+	tempsrepos CDATA #IMPLIED
+	note CDATA #IMPLIED
+>
+<!ELEMENT refingd EMPTY>
+<!ATTLIST refingd
+	ref IDREF #REQUIRED
+>
+<!ELEMENT ref_sous_categorie (#PCDATA)>
+
+
+<!--Element ingredient-->
+<!ELEMENT ingredient (apportnutritif, apportenergitique, descripitif)>
+<!ELEMENT apportnutritif (#PCDATA)>
+<!ELEMENT apportenergitique (#PCDATA)>
+<!ELEMENT descripitif (#PCDATA)>
+<!ATTLIST ingredient
+	id ID #REQUIRED
+	nom CDATA #IMPLIED
+	saison CDATA #IMPLIED
+>
+<!--Element auteur-->
+<!ELEMENT auteur (nom, prenom, age, pays, sexe, biographie, refrecette*, nbrecette?)>
+<!ATTLIST auteur
+	id CDATA #REQUIRED
+>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT prenom (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT pays (#PCDATA)>
+<!ELEMENT sexe (#PCDATA)>
+<!ELEMENT biographie (#PCDATA)>
+<!ELEMENT nbrecette (#PCDATA)>
+<!--Utilisé par auteur && categorie-->
+<!ELEMENT refrecette EMPTY>
+<!ATTLIST refrecette
+	ref IDREF #REQUIRED
+>
+
+<!--Element categorie-->
+<!ELEMENT categorie (nom,description,refsouscategorie*,photo?)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT refsouscategorie EMPTY>
+<!ATTLIST categorie id ID #REQUIRED>
+<!ATTLIST refsouscategorie ref IDREF #REQUIRED>
+
+
+<!--Element souscategorie-->
+<!ELEMENT souscategorie (nom,description,refrecette*,photo?)>
+<!ATTLIST souscategorie id ID #REQUIRED>
+
+<!--Balise HTML-->
+<!ELEMENT p (#PCDATA | p | br | strong | t)*>
+<!ELEMENT t (#PCDATA)>
+<!ELEMENT br EMPTY>
+<!ELEMENT strong (#PCDATA) >

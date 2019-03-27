@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- W3C Schema généré par XMLSpy v2018 sp1 (x64) (http://www.altova.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="p" type="T_p"/>
+	<xs:element name="t" type="xs:string"/>
+	<xs:element name="br" type="T_br"/>
+	<xs:element name="age" type="T_age"/>
+	<xs:element name="nom" type="T_nom"/>
+	<xs:element name="pays" type="T_pays"/>
+	<xs:element name="sexe" type="T_sexe"/>
+	<xs:element name="photo" type="xs:anyURI"/>
+	<xs:element name="auteur" type="T_auteur"/>
+	<xs:element name="prenom" type="T_prenom"/>
+	<xs:element name="resume" type="T_resume"/>
+	<xs:element name="strong" type="T_strong"/>
+	<xs:element name="recette" type="T_recette"/>
+	<xs:element name="titre"  type="T_recette"/>
+	<xs:element name="refingd" type="T_refingd"/>
+	<xs:element name="recettes" type="T_recettes"/>
+	<xs:element name="categorie" type="T_categorie"/>
+	<xs:element name="biographie" type="xs:string"/>
+	<xs:element name="ingredient" type="T_ingredient"/>
+	<xs:element name="refrecette" type="T_refrecette"/>
+	<xs:element name="descripitif" type="xs:string"/>
+	<xs:element name="description" type="xs:string"/>
+	<xs:element name="ingredients" type="T_ingredients"/>
+	<xs:element name="souscategorie" type="T_souscategorie"/>
+	<xs:element name="apportnutritif" type="xs:string"/>
+	<xs:element name="refsouscategorie" type="T_refsouscategorie"/>
+	<xs:element name="apportenergitique" type="xs:string"/>
+	<xs:element name="ref_sous_categorie" type="T_ref_sous_categorie"/>
+	<xs:element name="descriptionpreparation" type="T_descriptionpreparation"/>
+	
+	<xs:complexType name="T_p" mixed="true">
+		<xs:choice minOccurs="0">
+			<xs:sequence>
+				<xs:element ref="strong"/>
+				<xs:element ref="br" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:element ref="br" maxOccurs="unbounded"/>
+			<xs:element ref="t"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="T_br"/>
+	<xs:complexType name="T_age"/>
+	<xs:complexType name="T_auteur">
+		<xs:sequence>
+			<xs:element ref="nom"/>
+			<xs:element ref="prenom"/>
+			<xs:element ref="age"/>
+			<xs:element ref="pays"/>
+			<xs:element ref="sexe"/>
+			<xs:element ref="biographie"/>
+			<xs:element ref="refrecette" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="AT_25" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="T_resume">
+		<xs:sequence>
+			<xs:element ref="p" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="T_recette">
+		<xs:sequence>
+			<xs:element ref="resume"/>
+			<xs:element ref="photo"/>
+			<xs:element ref="ref_sous_categorie"/>
+			<xs:element ref="ingredients"/>
+			<xs:element ref="descriptionpreparation"/>
+			<xs:element ref="refingd" minOccurs="1" maxOccurs="20"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="AT_1" use="required"/>
+		<xs:attribute name="titre" type="xs:string" use="required" />
+		<xs:attribute name="datepub" type="xs:date" use="required"/>
+		<xs:attribute name="difficulte" type="AT_4" use="required"/>
+		<xs:attribute name="nbpersonnes" type="xs:byte" use="required"/>
+		<xs:attribute name="tempspreparation" type="AT_6" use="required"/>
+		<xs:attribute name="tempscuisson" type="AT_7" use="required"/>
+		<xs:attribute name="tempsrepos" type="AT_8" use="required"/>
+		<xs:attribute name="note" type="AT_9" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="T_refingd">
+		<xs:attribute name="ref" type="AT_16" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="T_recettes">
+		<xs:sequence>
+			<xs:element ref="recette" maxOccurs="unbounded"/>
+			<xs:element ref="ingredient" maxOccurs="unbounded"/>
+			<xs:element ref="auteur" maxOccurs="unbounded"/>
+			<xs:element ref="categorie" maxOccurs="unbounded"/>
+			<xs:element ref="souscategorie" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="T_categorie">
+		<xs:sequence>
+			<xs:element ref="nom"/>
+			<xs:element ref="description"/>
+			<xs:element ref="refsouscategorie" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="AT_34" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="T_ingredient">
+		<xs:sequence>
+			<xs:element ref="apportnutritif"/>
+			<xs:element ref="apportenergitique"/>
+			<xs:element ref="descripitif"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="AT_16" use="required"/>
+		<xs:attribute name="nom" type="AT_20" use="required"/>
+		<xs:attribute name="saison" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="T_refrecette">
+		<xs:attribute name="ref" type="AT_1" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="T_ingredients">
+		<xs:sequence>
+			<xs:element ref="p"/>
+			<xs:element ref="br"/>
+			<xs:element ref="p"/>
+			<xs:element ref="br"/>
+			<xs:element ref="p"/>
+			<xs:element ref="br"/>
+			<xs:element ref="p"/>
+			<xs:element ref="br"/>
+			<xs:sequence minOccurs="0">
+				<xs:element ref="p"/>
+				<xs:element ref="br"/>
+				<xs:sequence minOccurs="0">
+					<xs:element ref="p"/>
+					<xs:element ref="br"/>
+					<xs:sequence minOccurs="0">
+						<xs:element ref="p"/>
+						<xs:element ref="br"/>
+						<xs:sequence minOccurs="0">
+							<xs:element ref="p"/>
+							<xs:element ref="br"/>
+							<xs:sequence minOccurs="0">
+								<xs:element ref="p"/>
+								<xs:element ref="br"/>
+								<xs:sequence minOccurs="0">
+									<xs:element ref="p"/>
+									<xs:element ref="br"/>
+								</xs:sequence>
+							</xs:sequence>
+						</xs:sequence>
+					</xs:sequence>
+				</xs:sequence>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="T_souscategorie">
+		<xs:sequence>
+			<xs:element ref="nom"/>
+			<xs:element ref="description"/>
+			<xs:element ref="refrecette" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="AT_38" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="T_refsouscategorie">
+		<xs:attribute name="ref" type="AT_36" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="T_descriptionpreparation">
+		<xs:sequence>
+			<xs:element ref="p" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="AT_1">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="r1241"/>
+			<xs:enumeration value="r1611"/>
+			<xs:enumeration value="r1915"/>
+			<xs:enumeration value="r2101"/>
+			<xs:enumeration value="r2678"/>
+			<xs:enumeration value="r2830"/>
+			<xs:enumeration value="r3136"/>
+			<xs:enumeration value="r3289"/>
+			<xs:enumeration value="r4275"/>
+			<xs:enumeration value="r4315"/>
+			<xs:enumeration value="r4385"/>
+			<xs:enumeration value="r497"/>
+			<xs:enumeration value="r957"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AT_4">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Facile"/>
+			<xs:enumeration value="Très Facile"/>
+			<xs:enumeration value="Très facile"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AT_6">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="10min"/>
+			<xs:enumeration value="15min"/>
+			<xs:enumeration value="20min"/>
+			<xs:enumeration value="5min"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AT_7">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="10min"/>
+			<xs:enumeration value="15min"/>
+			<xs:enumeration value="17min"/>
+			<xs:enumeration value="20min"/>
+			<xs:enumeration value="25min"/>
+			<xs:enumeration value="30 min"/>
+			<xs:enumeration value="45 min"/>
+			<xs:enumeration value="50 min"/>
+			<xs:enumeration value="5min"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AT_8">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="30min"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AT_9">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AT_16">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="B10"/>
+			<xs:enumeration value="B200"/>
+			<xs:enumeration value="BEU1"/>
+			<xs:enumeration value="C50"/>
+			<xs:enumeration value="CA9"/>
+			<xs:enumeration value="CE5"/>
+			<xs:enumeration value="CH12"/>
+			<xs:enumeration value="CI10"/>
+			<xs:enumeration value="Co30"/>
+			<xs:enumeration value="F10"/>
+			<xs:enumeration value="F120"/>
+			<xs:enumeration value="FC20"/>
+			<xs:enumeration value="G15"/>
+			<xs:enumeration value="G63"/>
+			<xs:enumeration value="H20"/>
+			<xs:enumeration value="L300"/>
+			<xs:enumeration value="L50"/>
+			<xs:enumeration value="M110"/>
+			<xs:enumeration value="M80"/>
+			<xs:enumeration value="M9"/>
+			<xs:enumeration value="MO7"/>
+			<xs:enumeration value="O12"/>
+			<xs:enumeration value="Po40"/>
+			<xs:enumeration value="S12"/>
+			<xs:enumeration value="SO7"/>
+			<xs:enumeration value="SU2"/>
+			<xs:enumeration value="V10"/>
+			<xs:enumeration value="VI2"/>
+			<xs:enumeration value="a117"/>
+			<xs:enumeration value="ce100"/>
+			<xs:enumeration value="ch115"/>
+			<xs:enumeration value="e300"/>
+			<xs:enumeration value="ech12"/>
+			<xs:enumeration value="fr12"/>
+			<xs:enumeration value="oi16"/>
+			<xs:enumeration value="pom06"/>
+			<xs:enumeration value="s36"/>
+			<xs:enumeration value="t120"/>
+			<xs:enumeration value="t142"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AT_20">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Agneau"/>
+			<xs:enumeration value="Cerises"/>
+			<xs:enumeration value="Chocolat Noir"/>
+			<xs:enumeration value="Echalotte"/>
+			<xs:enumeration value="Endive"/>
+			<xs:enumeration value="Framboise"/>
+			<xs:enumeration value="Oignon"/>
+			<xs:enumeration value="Pommes de terre"/>
+			<xs:enumeration value="Thon"/>
+			<xs:enumeration value="Tomate"/>
+			<xs:enumeration value="beurre"/>
+			<xs:enumeration value="bicarbonate de sodium"/>
+			<xs:enumeration value="boules de mozzarella de bufflone"/>
+			<xs:enumeration value="cacao"/>
+			<xs:enumeration value="chapelure"/>
+			<xs:enumeration value="ciboulette"/>
+			<xs:enumeration value="cornichons"/>
+			<xs:enumeration value="crème"/>
+			<xs:enumeration value="céleri"/>
+			<xs:enumeration value="farine"/>
+			<xs:enumeration value="fromage de brebis"/>
+			<xs:enumeration value="fromage de chèvre"/>
+			<xs:enumeration value="gingembre"/>
+			<xs:enumeration value="girolles"/>
+			<xs:enumeration value="huile d&apos;olive"/>
+			<xs:enumeration value="lait"/>
+			<xs:enumeration value="levure chimique"/>
+			<xs:enumeration value="marrons"/>
+			<xs:enumeration value="moules"/>
+			<xs:enumeration value="moutarde"/>
+			<xs:enumeration value="myrtilles"/>
+			<xs:enumeration value="oeuf"/>
+			<xs:enumeration value="poivre"/>
+			<xs:enumeration value="sauce soja"/>
+			<xs:enumeration value="saumon"/>
+			<xs:enumeration value="sel"/>
+			<xs:enumeration value="sucre"/>
+			<xs:enumeration value="vin blanc"/>
+			<xs:enumeration value="vinaigre blanc"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AT_25">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AUT1"/>
+			<xs:enumeration value="AUT2"/>
+			<xs:enumeration value="AUT3"/>
+			<xs:enumeration value="AUT4"/>
+			<xs:enumeration value="AUT5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AT_34">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="C1"/>
+			<xs:enumeration value="C10"/>
+			<xs:enumeration value="C2"/>
+			<xs:enumeration value="C3"/>
+			<xs:enumeration value="C4"/>
+			<xs:enumeration value="C5"/>
+			<xs:enumeration value="C6"/>
+			<xs:enumeration value="C7"/>
+			<xs:enumeration value="C8"/>
+			<xs:enumeration value="C9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AT_36">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SC1"/>
+			<xs:enumeration value="SC10"/>
+			<xs:enumeration value="SC11"/>
+			<xs:enumeration value="SC12"/>
+			<xs:enumeration value="SC14"/>
+			<xs:enumeration value="SC15"/>
+			<xs:enumeration value="SC16"/>
+			<xs:enumeration value="SC2"/>
+			<xs:enumeration value="SC3"/>
+			<xs:enumeration value="SC4"/>
+			<xs:enumeration value="SC5"/>
+			<xs:enumeration value="SC6"/>
+			<xs:enumeration value="SC7"/>
+			<xs:enumeration value="SC8"/>
+			<xs:enumeration value="SC9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AT_38">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SC1"/>
+			<xs:enumeration value="SC10"/>
+			<xs:enumeration value="SC11"/>
+			<xs:enumeration value="SC12"/>
+			<xs:enumeration value="SC13"/>
+			<xs:enumeration value="SC14"/>
+			<xs:enumeration value="SC15"/>
+			<xs:enumeration value="SC16"/>
+			<xs:enumeration value="SC2"/>
+			<xs:enumeration value="SC3"/>
+			<xs:enumeration value="SC4"/>
+			<xs:enumeration value="SC5"/>
+			<xs:enumeration value="SC6"/>
+			<xs:enumeration value="SC7"/>
+			<xs:enumeration value="SC8"/>
+			<xs:enumeration value="SC9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_nom">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="Agneau"/>
+			<xs:enumeration value="Autres plats"/>
+			<xs:enumeration value="Boeuf"/>
+			<xs:enumeration value="Boissons"/>
+			<xs:enumeration value="Cabillaud"/>
+			<xs:enumeration value="Cakes"/>
+			<xs:enumeration value="Cakes sucrés"/>
+			<xs:enumeration value="Canard"/>
+			<xs:enumeration value="Coquillages"/>
+			<xs:enumeration value="Crevettes"/>
+			<xs:enumeration value="Descamps"/>
+			<xs:enumeration value="Desserts"/>
+			<xs:enumeration value="Entrées"/>
+			<xs:enumeration value="Entrées-froides"/>
+			<xs:enumeration value="Gateaux"/>
+			<xs:enumeration value="Lapin"/>
+			<xs:enumeration value="Macarons"/>
+			<xs:enumeration value="Pizzas"/>
+			<xs:enumeration value="Recettes classiques"/>
+			<xs:enumeration value="Rouget"/>
+			<xs:enumeration value="Sauces, beurres et condiments"/>
+			<xs:enumeration value="Saumon"/>
+			<xs:enumeration value="Tombini"/>
+			<xs:enumeration value="apéritifs"/>
+			<xs:enumeration value="entrées-chaudes"/>
+			<xs:enumeration value="pains"/>
+			<xs:enumeration value="poissons et crustacés"/>
+			<xs:enumeration value="viandes"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_pays">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="France"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_sexe">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Femme"/>
+			<xs:enumeration value="Homme"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_prenom">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Clochette"/>
+			<xs:enumeration value="Karine"/>
+			<xs:enumeration value="Marie-Laure"/>
+			<xs:enumeration value="Nadege"/>
+			<xs:enumeration value="Vanessa"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_strong">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Pour les frites : "/>
+			<xs:enumeration value="Pour les moules"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="T_ref_sous_categorie">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SC1"/>
+			<xs:enumeration value="SC11"/>
+			<xs:enumeration value="SC14"/>
+			<xs:enumeration value="SC16"/>
+			<xs:enumeration value="SC2"/>
+			<xs:enumeration value="SC3"/>
+			<xs:enumeration value="SC5"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

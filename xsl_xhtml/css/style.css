@@ -1,0 +1,285 @@
+@import "animate.css";
+
+
+/*========================================================
+                      Main Styles
+=========================================================*/
+
+
+
+body {
+  background: #ffffb3;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400px;
+  -webkit-text-size-adjust: none;
+  color: #000000;
+}
+img {
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   padding: 5px;
+   width: 300px;
+    height: auto;
+  border-radius: 50%;
+	display: block;
+	margin-top: 50px;
+    margin-bottom: 50px;
+}
+img:hover {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+h2 {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 62px;
+  line-height: 82px;
+  font-weight: 300;
+  color: #4d4dff;
+}
+
+h2 em {
+  display: block;
+  font-family: 'Yesteryear', cursive;
+  font-size: 100px;
+  line-height: 82px;
+  font-weight: 400;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 38px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #393328;
+}
+p a:hover {
+  text-decoration: underline;
+}
+figcaption {
+  font-family: 'Yesteryear', cursive;
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 400;
+  color: #393328;
+}
+
+#nom_recette{
+	    background: #ffffb3;
+	text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 62px;
+  line-height: 82px;
+  font-weight: 300;
+  color: #000000;
+}
+ul {
+    background: #ffffb3;
+    
+}
+ul li {
+    background: #ffffb3;
+    margin: 5px;
+color: #ff1a1a;
+}
+/*=======================================================
+                        Components
+=========================================================*/
+/*========================   Menu   ==========================*/
+.sf-menu {
+  display: inline-block;
+}
+.sf-menu:before,
+.sf-menu:after {
+  content: " ";
+  display: table;
+}
+.sf-menu:after {
+  clear: both;
+}
+.sf-menu > li {
+  position: relative;
+  float: left;
+}
+.sf-menu > li + li {
+  margin-left: 20px;
+}
+.sf-menu a {
+  display: block;
+}
+.sf-menu {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 300;
+}
+.sf-menu > li > a {
+  color: #ff1a1a;
+}
+.sf-menu > li.sfHover > a,
+.sf-menu > li > a:hover {
+  color: #2b2929;
+}
+.sf-menu > li.active > a {
+  color: #2b2929;
+}
+.sf-menu ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  width: 235px;
+  margin-top: 30px;
+  padding: 0;
+  background: #e6e6e6;
+  z-index: 2;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.sf-menu ul {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 300;
+}
+.sf-menu ul > li > a {
+  color: #393328;
+  padding: 0 20px;
+}
+.sf-menu ul > li.sfHover > a,
+.sf-menu ul > li > a:hover {
+  color: #ffffff;
+  background: #15ABCC;
+}
+.sf-menu ul ul {
+  position: static;
+  top: 100%;
+  width: auto;
+  margin-top: 0;
+  padding: 0;
+  z-index: 4;
+}
+.sf-menu ul ul > li > a {
+  color: #393328;
+  padding: 0 30px;
+}
+.sf-menu ul ul > li.sfHover > a,
+.sf-menu ul ul > li > a:hover {
+  color: #ffffff;
+  background: #15ABCC;
+}
+.sf-menu > li > .sf-with-ul {
+  position: relative;
+}
+.sf-menu > li > .sf-with-ul:before {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin-left: -6px;
+  content: '\f0d7';
+  font: 400 12px/12px 'FontAwesome';
+}
+@media (max-width: 767px) {
+  .sf-menu {
+    display: none;
+  }
+}
+
+
+
+/*========================================================
+                     HEADER  Section
+=========================================================*/
+
+
+header {
+  background: #15ABCC;
+}
+header .brand {
+  float: left;
+}
+header .nav {
+  margin: 38px 0 48px 0;
+  float: right;
+}
+@media (max-width: 767px) {
+  header {
+    text-align: center;
+  }
+  header .brand,
+  header .nav {
+    float: none;
+  }
+}
+/*==================     Brand     ======================*/
+.brand {
+  margin: 14px 0 0 0;
+  float: left;
+}
+.brand_name {
+  padding: 0 0 6px 4px;
+  display: inline-block;
+  overflow: hidden;
+  font-family: 'Yesteryear', cursive;
+  font-size: 60px;
+  line-height: 64px;
+  color: #ffffff;
+}
+/*=======================================================
+                     CONTENT  Layout
+=========================================================*/
+* + p {
+  margin-top: 46px;
+}
+* + h2 {
+  margin-top: 138px;
+}
+* + h3 {
+  margin-top: 20px;
+}
+* + figcaption {
+  margin-top: 25px;
+}
+* + address {
+  margin-top: 37px;
+}
+* + .row {
+  margin-top: 80px;
+}
+* + .row__offset-1 {
+  margin-top: 60px;
+}
+* + .row__offset-2 {
+  margin-top: 30px;
+}
+* + .decoration {
+  margin-top: 43px;
+}
+* + .btn {
+  margin-top: 43px;
+}
+* + .gallery {
+  margin-top: 34px;
+}
+h2 + p {
+  margin-top: 55px;
+}
+h3 + p {
+  margin-top: 21px;
+}
+p + .img {
+  margin-top: 46px;
+}
+.img + h3 {
+  margin-top: 46px;
+}
+/*========================================================
+                     CONTENT  Styles
+=========================================================*/
+main {
+  display: block;
+  background: #ffffff;
+}
